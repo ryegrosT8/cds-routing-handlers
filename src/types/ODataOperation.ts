@@ -11,4 +11,8 @@ export enum ODataOperation {
     Delete = "DELETE",
     Function = "FUNC",
     Action = "ACTION",
+    New = "NEW",
+    Edit = "EDIT",
+    Patch = "PATCH",
+    Save = "SAVE",
 }

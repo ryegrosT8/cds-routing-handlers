@@ -32,6 +32,12 @@ export * from "./types/IUserChecker";
 export * from "./types/ICdsRoutingHandlerOptions";
 export * from "./types/MiddlewareRuntime";
 
+//Draft events
+export * from "./decorators/method/New";
+export * from "./decorators/method/Edit";
+export * from "./decorators/method/Patch";
+export * from "./decorators/method/Save";
+
 /**
  * Returns the metadata arguments storage.
  *
@@ -53,13 +59,13 @@ export function getMetadataArgsStorage(): MetadataArgsStorage {
  * @returns {Function[]} Imported classes
  */
 function importClassesFromDirectories(directories: string[], formats = [".js", ".ts"]): Function[] {
-    const loadFileClasses = function(exported: any, allLoaded: Function[]) {
+    const loadFileClasses = function (exported: any, allLoaded: Function[]) {
         if (exported instanceof Function) {
             allLoaded.push(exported);
         } else if (exported instanceof Array) {
             exported.forEach((i: any) => loadFileClasses(i, allLoaded));
         } else if (exported instanceof Object || typeof exported === "object") {
-            Object.keys(exported).forEach(key => loadFileClasses(exported[key], allLoaded));
+            Object.keys(exported).forEach((key) => loadFileClasses(exported[key], allLoaded));
         }
 
         return allLoaded;
@@ -70,11 +76,11 @@ function importClassesFromDirectories(directories: string[], formats = [".js", "
     }, [] as string[]);
 
     const dirs = allFiles
-        .filter(file => {
+        .filter((file) => {
             const dtsExtension = file.substring(file.length - 5, file.length);
             return formats.indexOf(path.extname(file)) !== -1 && dtsExtension !== ".d.ts";
         })
-        .map(file => {
+        .map((file) => {
             return require(file);
         });
 
@@ -98,8 +104,8 @@ export function createCombinedHandler(options: ICdsRoutingHandlerOptions): (srv:
 
         let handlerClasses: Function[];
         if (options.handler && options.handler.length) {
-            handlerClasses = (options.handler as any[]).filter(controller => controller instanceof Function);
-            const handlerDirs = (options.handler as any[]).filter(controller => typeof controller === "string");
+            handlerClasses = (options.handler as any[]).filter((controller) => controller instanceof Function);
+            const handlerDirs = (options.handler as any[]).filter((controller) => typeof controller === "string");
             handlerClasses.push(...importClassesFromDirectories(handlerDirs));
 
             CDSHandler.register(srv, {
