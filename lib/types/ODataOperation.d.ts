@@ -15,4 +15,5 @@ export declare enum ODataOperation {
     Edit = "EDIT",
     Patch = "PATCH",
     Save = "SAVE",
+    Cancel = "CANCEL",
 }
