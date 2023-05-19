@@ -37,6 +37,7 @@ export * from "./decorators/method/New";
 export * from "./decorators/method/Edit";
 export * from "./decorators/method/Patch";
 export * from "./decorators/method/Save";
+export * from "./decorators/method/Cancel";
 
 /**
  * Returns the metadata arguments storage.
