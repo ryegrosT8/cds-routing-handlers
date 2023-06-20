@@ -21,9 +21,12 @@ export interface IUseContainerOptions {
  * @param {{ get(someClass: any): any }} iocContainer
  * @param {IUseContainerOptions} [options]
  */
-export declare function useContainer(iocContainer: {
-    get(someClass: any): any;
-}, options?: IUseContainerOptions): void;
+export declare function useContainer(
+    iocContainer: {
+        get(someClass: any): any;
+    },
+    options?: IUseContainerOptions
+): void;
 /**
  * Gets the IOC container used by this library.
  *
@@ -32,6 +35,10 @@ export declare function useContainer(iocContainer: {
  * @param {({ new (...args: any[]): T } | Function)} someClass
  * @returns {T}
  */
-export declare function getFromContainer<T>(someClass: {
-    new (...args: any[]): T;
-} | Function): T;
+export declare function getFromContainer<T>(
+    someClass:
+        | {
+              new (...args: any[]): T;
+          }
+        | Function
+): T;
