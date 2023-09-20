@@ -140,7 +140,10 @@ export class ParamMetadata {
                 this._targetName = this._targetType.toLowerCase();
             }
 
-            this._isTargetObject = this._targetType instanceof Function || this._targetType.toLowerCase() === "object";
+            this._isTargetObject =
+                this._targetType instanceof Function || typeof this._targetType == "string"
+                    ? this._targetType.toLowerCase() === "object"
+                    : typeof this._targetType === "object";
         }
     }
 }
