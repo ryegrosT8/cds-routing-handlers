@@ -6,5 +6,5 @@
 export declare enum HandlerType {
     Before = 0,
     On = 1,
-    After = 2,
+    After = 2
 }

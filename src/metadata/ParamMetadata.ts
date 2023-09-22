@@ -141,9 +141,9 @@ export class ParamMetadata {
             }
 
             this._isTargetObject =
-                this._targetType instanceof Function || typeof this._targetType == "string"
+                this._targetType instanceof Function || ( typeof this._targetType == "string"
                     ? this._targetType.toLowerCase() === "object"
-                    : typeof this._targetType === "object";
+                    : typeof this._targetType === "object" );
         }
     }
 }

@@ -14,5 +14,5 @@ export declare enum ParamType {
     Entities = 6,
     Next = 7,
     Locale = 8,
-    User = 9,
+    User = 9
 }
