@@ -13,5 +13,5 @@ export declare enum MiddlewareRuntime {
     /**
      * @deprecated: not available since @sap/cds > 3.31.2
      */
-    AfterDefaults = 2
+    AfterDefaults = 2,
 }
