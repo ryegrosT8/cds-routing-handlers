@@ -68,14 +68,6 @@
         ]
     },
     "cds": {
-        "requires": {
-            "db": {
-                "kind": "hana",
-                "model": [
-                    "srv"
-                ]
-            }
-        },
         "odata": {
             "version": "v4"
         }
